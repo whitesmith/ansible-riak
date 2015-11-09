@@ -2,6 +2,7 @@
 - name: Create users
   command: '{{ riak_admin }} security add-user {{ item.user }} password={{ item.password }}'
   with_items: riak_users
+  no_log: True
 
 - name: Create security sources
   command: '{{ riak_admin }} security add-source {{ item.user }} {{ item.cidr }} {{ item.type }}'
